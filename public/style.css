@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.card {
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 1.8em;
+}
+
+.privacy-note {
+  font-size: 14px;
+  color: #bbb;
+  margin-top: 18px;
+  line-height: 1.5;
+  padding-top: 10px;
+  border-top: 1px solid #333;
+}
+
+.qr img {
+  width: 100%;
+  max-width: 512px;
+  height: auto;
+  border-radius: 8px;
+  image-rendering: pixelated;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.btn-row, .donate-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+button {
+  flex: 1 1 30%;
+  min-width: 80px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  background: #333;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #444;
+}
+
+.hidden {
+  display: none;
+}
+
+.donate {
+  background: #222;
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.donate:hover {
+  background: #333;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .btn-row button,
+  .donate-row button {
+    flex: 1 1 100%;
+  }
+}
