@@ -8,18 +8,16 @@
       property="og:description"
       content="Generate QR codes instantly without tracking or data collection."
     />
-    <meta property="og:image" content="https://luna-qr.onrender.com/moon.png" />
+    <meta
+      property="og:image"
+      content="https://luna-qr.onrender.com/moon.webp"
+    />
     <meta property="og:url" content="https://luna-qr.onrender.com/" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <title>Private QR Code Generator – No Tracking, Fast & Secure</title>
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/png" href="luna.png" />
+    <link rel="icon" type="image/png" href="luna.webp" />
   </head>
   <body>
     <div class="container">
@@ -32,7 +30,7 @@
       </p>
       <div class="card">
         <div id="qrContainer" class="qr">
-          <img src="moon.png" alt="moon" id="qrImage" />
+          <img src="moon.webp" alt="moon" id="qrImage" />
         </div>
 
         <input
@@ -49,13 +47,49 @@
         <p>Fund snacks & servers—tap a button, be a hero!</p>
         <div class="donate-row">
           <button class="donate" data-amount="1">
-            <i class="fab fa-paypal"></i> $1
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="#fff"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23.5 6.5c-.3-2.3-2.4-3.5-5.6-3.5h-8.8c-.4 0-.8.3-.9.7l-3.2 15.3c-.1.5.3.9.8.9h3.8l.8-4h2.4c4.6 0 8.1-2.3 9.1-6.4.1-.5.2-1 .2-1.5z"
+                fill="skyblue"
+              />
+            </svg>
+            $1
           </button>
           <button class="donate" data-amount="5">
-            <i class="fab fa-paypal"></i> $5
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="#fff"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23.5 6.5c-.3-2.3-2.4-3.5-5.6-3.5h-8.8c-.4 0-.8.3-.9.7l-3.2 15.3c-.1.5.3.9.8.9h3.8l.8-4h2.4c4.6 0 8.1-2.3 9.1-6.4.1-.5.2-1 .2-1.5z"
+                fill="skyblue"
+              />
+            </svg>
+            $5
           </button>
           <button class="donate" data-amount="10">
-            <i class="fab fa-paypal"></i> $10
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="#fff"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23.5 6.5c-.3-2.3-2.4-3.5-5.6-3.5h-8.8c-.4 0-.8.3-.9.7l-3.2 15.3c-.1.5.3.9.8.9h3.8l.8-4h2.4c4.6 0 8.1-2.3 9.1-6.4.1-.5.2-1 .2-1.5z"
+                fill="skyblue"
+              />
+            </svg>
+            $10
           </button>
         </div>
       </div>
