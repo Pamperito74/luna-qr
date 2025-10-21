@@ -8,15 +8,17 @@
       property="og:description"
       content="Generate QR codes instantly without tracking or data collection."
     />
-    <meta
-      property="og:image"
-      content="https://luna-qr.onrender.com/moon.png"
-    />
+    <meta property="og:image" content="https://luna-qr.onrender.com/moon.png" />
     <meta property="og:url" content="https://luna-qr.onrender.com/" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <title>Private QR Code Generator – No Tracking, Fast & Secure</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" type="image/png" href="luna.png" />
   </head>
   <body>
@@ -33,70 +35,108 @@
           <img src="moon.png" alt="moon" id="qrImage" />
         </div>
 
-        <input type="text" id="inputText" placeholder="Enter URL or email to generate a QR Code" />
+        <input
+          type="text"
+          id="inputText"
+          placeholder="Enter URL or email to generate a QR Code"
+        />
 
         <div class="btn-row">
           <button id="generateBtn" title="Generate">⚙️</button>
           <button id="clearBtn" title="Clear">🧹</button>
           <button id="downloadBtn" class="hidden" title="Download">⬇️</button>
         </div>
-
-        <p>Your clicks fund snacks and servers 🍪🖥️ - Tap a button, be a hero 🦸‍♂️💖</p>
+        <p>Fund snacks & servers—tap a button, be a hero!</p>
         <div class="donate-row">
-            <button class="donate" data-amount="1">$1</button>
-            <button class="donate" data-amount="5">$5</button>
-            <button class="donate" data-amount="10">$10</button>
+          <button class="donate" data-amount="1">
+            <i class="fab fa-paypal"></i> $1
+          </button>
+          <button class="donate" data-amount="5">
+            <i class="fab fa-paypal"></i> $5
+          </button>
+          <button class="donate" data-amount="10">
+            <i class="fab fa-paypal"></i> $10
+          </button>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          © <span id="year"></span> QR Code Generator |
+          <button id="privacy-btn">Privacy Policy</button>
+        </p>
+      </footer>
+
+      <!-- Privacy Policy Modal -->
+      <div id="privacy-modal">
+        <div class="modal-content">
+          <h2>Privacy Policy</h2>
+
+          <p><strong>Effective Date:</strong> October 21, 2025</p>
+
+          <h3>1. Information We Do Not Collect</h3>
+          <p>
+            We do <strong>not collect, store, or share</strong> any personal
+            information or data you enter into the QR Code Generator. All QR
+            codes are generated locally in your browser — nothing you type or
+            upload is sent to our servers.
+          </p>
+
+          <h3>2. Advertising</h3>
+          <p>
+            We use <strong>Google AdSense</strong> to display ads on our
+            website. Google may use cookies or similar technologies to serve ads
+            based on your visits to this and other websites.
+          </p>
+          <p>
+            You can learn more about how Google uses data here:
+            <a
+              href="https://policies.google.com/technologies/ads"
+              target="_blank"
+              >https://policies.google.com/technologies/ads</a
+            >
+          </p>
+          <p>
+            To manage your ad personalization preferences, visit:
+            <a href="https://adssettings.google.com/" target="_blank"
+              >https://adssettings.google.com/</a
+            >
+          </p>
+
+          <h3>3. Cookies</h3>
+          <p>
+            Our website itself does not use cookies. However,
+            <strong>Google Ads</strong> may set cookies to deliver relevant
+            advertising and track performance.
+          </p>
+
+          <h3>4. Third-Party Links</h3>
+          <p>
+            Our website may contain links to third-party sites. We are not
+            responsible for the content or privacy practices of those sites.
+          </p>
+
+          <h3>5. Changes to This Policy</h3>
+          <p>
+            We may update this Privacy Policy from time to time. When we do, we
+            will update the “Effective Date” above.
+          </p>
+
+          <h3>6. Contact</h3>
+          <p>
+            If you have any questions about this Privacy Policy, you can contact
+            us at:
+            <a href="mailto:daniel.oceno@gmail.com">daniel.oceno@gmail.com</a>
+          </p>
+
+          <div class="close-btn">
+            <button id="close-modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <script>
-      const inputText = document.getElementById("inputText");
-      const generateBtn = document.getElementById("generateBtn");
-      const clearBtn = document.getElementById("clearBtn");
-      const downloadBtn = document.getElementById("downloadBtn");
-      const qrImage = document.getElementById("qrImage");
-
-      generateBtn.onclick = async () => {
-        const text = inputText.value.trim();
-        if (!text) return alert("Please enter a URL or email.");
-
-        const res = await fetch("/generate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text }),
-        });
-
-        const data = await res.json();
-        if (data.qr) {
-          qrImage.src = data.qr;
-          downloadBtn.classList.remove("hidden");
-          downloadBtn.onclick = () => downloadQR(data.qr);
-        }
-      };
-
-      clearBtn.onclick = () => {
-        inputText.value = "";
-        qrImage.src = "moon.png";
-        downloadBtn.classList.add("hidden");
-      };
-
-      function downloadQR(dataUrl) {
-        const a = document.createElement("a");
-        a.href = dataUrl;
-        a.download = "qr-code.png";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }
-
-      document.querySelectorAll(".donate").forEach((btn) => {
-        btn.onclick = () => {
-          const amount = btn.dataset.amount;
-          const paypalUrl = `https://www.paypal.com/donate?business=daniel.oceno@gmail.com&amount=${amount}&currency_code=USD`;
-          window.open(paypalUrl, "_blank");
-        };
-      });
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>
