@@ -246,7 +246,8 @@
     <div class="container">
       <h1>Luna QR Generator v2</h1>
       <p class="privacy-note">
-        Other QR tools may track scans — ours doesn’t. Just simple, private QR codes.
+        Other QR tools may track scans — ours doesn’t. Just simple, private QR
+        codes.
       </p>
       <div class="card">
         <div id="qrContainer" class="qr">
@@ -382,6 +383,10 @@
         </div>
       </div>
     </div>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"
+    ></script>
     <script defer>
       (() => {
         const q = (e) => document.getElementById(e),
@@ -393,33 +398,38 @@
           modal = q("privacy-modal"),
           pBtn = q("privacy-btn"),
           cBtn = q("close-modal");
+
         gen.onclick = async () => {
           const t = input.value.trim();
           if (!t) return alert("Please enter a URL or email.");
-          const r = await fetch("/generate", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ text: t }),
-            }),
-            n = await r.json();
-          if (n.qr) {
-            img.src = n.qr;
+          try {
+            const dataUrl = await QRCode.toDataURL(t, {
+              width: 256,
+              margin: 1,
+              color: { dark: "#000", light: "#fff" },
+            });
+            img.src = dataUrl;
             dl.classList.remove("hidden");
             dl.onclick = () => {
               const a = document.createElement("a");
-              a.href = n.qr;
+              a.href = dataUrl;
               a.download = "qr-code.png";
               document.body.appendChild(a);
               a.click();
               a.remove();
             };
+          } catch (err) {
+            alert("Failed to generate QR code.");
+            console.error(err);
           }
         };
+
         clr.onclick = () => {
           input.value = "";
           img.src = "moon.webp";
           dl.classList.add("hidden");
         };
+
         document.querySelectorAll(".donate").forEach((e) => {
           e.onclick = () =>
             window.open(
@@ -427,6 +437,7 @@
               "_blank"
             );
         });
+
         q("year").textContent = new Date().getFullYear();
         pBtn.onclick = () => (modal.style.display = "block");
         cBtn.onclick = () => (modal.style.display = "none");
