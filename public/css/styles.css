@@ -71,7 +71,6 @@ input {
 }
 input:focus {
   outline: none;
-  background: var(--button-background);
 }
 .btn-row,
 .donate-row {
