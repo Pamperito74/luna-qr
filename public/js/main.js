@@ -1,1 +1,66 @@
-function _0x3252(_0x36f11e,_0x6bf56b){const _0x3a1ed2=_0x3a1e();return _0x3252=function(_0x325208,_0x26bbe4){_0x325208=_0x325208-0x1c1;let _0x42d41e=_0x3a1ed2[_0x325208];return _0x42d41e;},_0x3252(_0x36f11e,_0x6bf56b);}(function(_0x28e7b9,_0x1dcef0){const _0x103108=_0x3252,_0x59ff6d=_0x28e7b9();while(!![]){try{const _0x30d1c3=parseInt(_0x103108(0x1c2))/0x1+parseInt(_0x103108(0x1eb))/0x2*(parseInt(_0x103108(0x1f7))/0x3)+-parseInt(_0x103108(0x1c3))/0x4+-parseInt(_0x103108(0x1e6))/0x5+-parseInt(_0x103108(0x1c9))/0x6*(-parseInt(_0x103108(0x1d8))/0x7)+parseInt(_0x103108(0x1da))/0x8*(-parseInt(_0x103108(0x1d1))/0x9)+-parseInt(_0x103108(0x1e9))/0xa;if(_0x30d1c3===_0x1dcef0)break;else _0x59ff6d['push'](_0x59ff6d['shift']());}catch(_0x392bbd){_0x59ff6d['push'](_0x59ff6d['shift']());}}}(_0x3a1e,0xcda2c),((()=>{const _0x588264=_0x3252;document[_0x588264(0x1f8)]('contextmenu',_0x380101=>_0x380101[_0x588264(0x1ed)]()),document['addEventListener'](_0x588264(0x1e2),_0x4c979c=>_0x4c979c[_0x588264(0x1ed)]()),document[_0x588264(0x1f8)](_0x588264(0x1e4),_0x486061=>_0x486061[_0x588264(0x1ed)]()),document[_0x588264(0x1f8)]('paste',_0x2b8fe2=>_0x2b8fe2['preventDefault']());const _0x37e6e2=_0x5a8c46=>document[_0x588264(0x1d7)](_0x5a8c46),_0xa18137=_0x37e6e2(_0x588264(0x1ce)),_0x5e8840=_0x37e6e2(_0x588264(0x1d2)),_0x5900cf=_0x37e6e2(_0x588264(0x1f0)),_0x33cf98=_0x37e6e2(_0x588264(0x1c5)),_0x32e838=_0x37e6e2(_0x588264(0x1df)),_0x2bce30=_0x37e6e2(_0x588264(0x1cc)),_0x2540f8=_0x37e6e2(_0x588264(0x1e1)),_0xa5512d=_0x37e6e2(_0x588264(0x1c1));_0x5e8840['onclick']=()=>{const _0x71ebe0=_0x588264,_0x19e599=_0xa18137[_0x71ebe0(0x1d9)][_0x71ebe0(0x1e0)]();if(!_0x19e599)return alert(_0x71ebe0(0x1e3));QRCode[_0x71ebe0(0x1f1)](_0x19e599,{'width':0xc8},(_0xdfd274,_0x255b7f)=>{const _0x535eee=_0x71ebe0;if(_0xdfd274)return console[_0x535eee(0x1d3)](_0xdfd274);_0x32e838[_0x535eee(0x1cb)]=_0x255b7f,_0x33cf98[_0x535eee(0x1c6)][_0x535eee(0x1c7)](_0x535eee(0x1e8)),_0x33cf98[_0x535eee(0x1f5)]=()=>{const _0x4ade4f=_0x535eee,_0x4fcd33=document[_0x4ade4f(0x1cd)]('a');_0x4fcd33['href']=_0x255b7f,_0x4fcd33['download']=_0x4ade4f(0x1e5),document[_0x4ade4f(0x1d5)][_0x4ade4f(0x1e7)](_0x4fcd33),_0x4fcd33[_0x4ade4f(0x1ca)](),_0x4fcd33[_0x4ade4f(0x1c7)]();};});},_0x5900cf[_0x588264(0x1f5)]=()=>{const _0x573ee3=_0x588264;_0xa18137[_0x573ee3(0x1d9)]='',_0x32e838[_0x573ee3(0x1cb)]=_0x573ee3(0x1ea),_0x33cf98[_0x573ee3(0x1c6)][_0x573ee3(0x1cf)](_0x573ee3(0x1e8));},document[_0x588264(0x1f2)](_0x588264(0x1de))[_0x588264(0x1dc)](_0x1ae745=>{const _0x2a2f24=_0x588264;_0x1ae745[_0x2a2f24(0x1f5)]=()=>window[_0x2a2f24(0x1d4)]('https://www.paypal.com/donate?business=daniel.oceno@gmail.com&amount='+_0x1ae745[_0x2a2f24(0x1d6)][_0x2a2f24(0x1d0)]+_0x2a2f24(0x1dd),_0x2a2f24(0x1f6));}),_0x37e6e2(_0x588264(0x1ee))[_0x588264(0x1c4)]=new Date()[_0x588264(0x1c8)](),_0x2540f8[_0x588264(0x1f5)]=()=>_0x2bce30['style'][_0x588264(0x1ec)]=_0x588264(0x1ef),_0xa5512d[_0x588264(0x1f5)]=()=>_0x2bce30[_0x588264(0x1f4)][_0x588264(0x1ec)]='none',window[_0x588264(0x1f5)]=_0x47711a=>{const _0x33795b=_0x588264;if(_0x47711a[_0x33795b(0x1f3)]===_0x2bce30)_0x2bce30[_0x33795b(0x1f4)][_0x33795b(0x1ec)]=_0x33795b(0x1db);};})()));function _0x3a1e(){const _0x43f0a3=['privacy-modal','createElement','inputText','add','amount','99xZynZl','generateBtn','error','open','body','dataset','getElementById','49CQbVoq','value','1167744vEutyu','none','forEach','&currency_code=USD','.donate','qrImage','trim','privacy-btn','copy','Please\x20enter\x20a\x20URL\x20or\x20email.','cut','qr-code.png','602615jkOlSY','appendChild','hidden','43870cdGtMP','assets/moon.webp','79666OHGKhq','display','preventDefault','year','block','clearBtn','toDataURL','querySelectorAll','target','style','onclick','_blank','81GdMFdK','addEventListener','close-modal','1626419aZaHHc','2079148rrUwhv','textContent','downloadBtn','classList','remove','getFullYear','334902ECYziZ','click','src'];_0x3a1e=function(){return _0x43f0a3;};return _0x3a1e();}
+(() => {
+  // ---------------------------
+  // Disable right-click / copying
+  // ---------------------------
+  document.addEventListener("contextmenu", (e) => e.preventDefault());
+  document.addEventListener("copy", (e) => e.preventDefault());
+  document.addEventListener("cut", (e) => e.preventDefault());
+  document.addEventListener("paste", (e) => e.preventDefault());
+
+  const q = (e) => document.getElementById(e),
+    input = q("inputText"),
+    gen = q("generateBtn"),
+    clr = q("clearBtn"),
+    dl = q("downloadBtn"),
+    img = q("qrImage"),
+    modal = q("privacy-modal"),
+    pBtn = q("privacy-btn"),
+    cBtn = q("close-modal");
+
+  // Generate QR code
+  gen.onclick = () => {
+    const t = input.value.trim();
+    if (!t) return alert("Please enter a URL or email.");
+
+    QRCode.toDataURL(t, { width: 200 }, (err, url) => {
+      if (err) return console.error(err);
+      img.src = url;
+      dl.classList.remove("hidden");
+
+      dl.onclick = () => {
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "qr-code.png";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      };
+    });
+  };
+
+  // Clear input
+  clr.onclick = () => {
+    input.value = "";
+    img.src = "assets/moon.webp";
+    dl.classList.add("hidden");
+  };
+
+  // Donate buttons
+  document.querySelectorAll(".donate").forEach((e) => {
+    e.onclick = () =>
+      window.open(
+        `https://www.paypal.com/donate?business=daniel.oceno@gmail.com&amount=${e.dataset.amount}&currency_code=USD`,
+        "_blank"
+      );
+  });
+
+  // Year
+  q("year").textContent = new Date().getFullYear();
+
+  // Privacy modal
+  pBtn.onclick = () => (modal.style.display = "block");
+  cBtn.onclick = () => (modal.style.display = "none");
+  window.onclick = (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  };
+})();
