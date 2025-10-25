@@ -8,33 +8,38 @@
     modal = q("privacy-modal"),
     pBtn = q("privacy-btn"),
     cBtn = q("close-modal");
-  gen.onclick = async () => {
+
+  // Generate QR code entirely in the browser
+  gen.onclick = () => {
     const t = input.value.trim();
     if (!t) return alert("Please enter a URL or email.");
-    const r = await fetch("/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: t }),
-      }),
-      n = await r.json();
-    if (n.qr) {
-      img.src = n.qr;
+
+    // Use QRCode.js to generate base64 QR code
+    QRCode.toDataURL(t, { width: 200 }, (err, url) => {
+      if (err) return console.error(err);
+
+      img.src = url;
       dl.classList.remove("hidden");
+
       dl.onclick = () => {
         const a = document.createElement("a");
-        a.href = n.qr;
+        a.href = url;
         a.download = "qr-code.png";
         document.body.appendChild(a);
         a.click();
         a.remove();
       };
-    }
+    });
   };
+
+  // Clear input and reset QR image
   clr.onclick = () => {
     input.value = "";
-    img.src = "moon.webp";
+    img.src = "assets/moon.webp";
     dl.classList.add("hidden");
   };
+
+  // Donate buttons
   document.querySelectorAll(".donate").forEach((e) => {
     e.onclick = () =>
       window.open(
@@ -42,7 +47,11 @@
         "_blank"
       );
   });
+
+  // Current year
   q("year").textContent = new Date().getFullYear();
+
+  // Privacy modal
   pBtn.onclick = () => (modal.style.display = "block");
   cBtn.onclick = () => (modal.style.display = "none");
   window.onclick = (e) => {
