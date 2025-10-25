@@ -13,12 +13,6 @@
     <meta name="twitter:card" content="summary_large_image" />
     <title>Luna QR Code Generator – No Tracking, Fast & Secure</title>
     <link rel="icon" type="image/png" href="luna.webp" />
-    <meta name="google-adsense-account" content="ca-pub-6433842942378095" />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6433842942378095"
-      crossorigin="anonymous"
-    ></script>
     <style>
       :root {
         --background-color: #111;
@@ -27,21 +21,17 @@
         --highlight-color: #4caf50;
         --button-background: #333;
         --button-hover: #444;
-        --strength-red: red;
-        --strength-orange: orange;
-        --strength-green: green;
       }
       body {
         font-family: Arial, sans-serif;
-        background: #111;
-        color: #fff;
+        background: var(--background-color);
+        color: var(--text-color);
         margin: 0;
         padding: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        box-sizing: border-box;
       }
       .container {
         text-align: center;
@@ -49,7 +39,7 @@
         width: 75%;
       }
       .card {
-        background: #1b1b1b;
+        background: var(--card-background);
         padding: 20px;
         border-radius: 12px;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -60,7 +50,7 @@
         font-weight: 600;
         font-size: 1.8em;
         color: var(--highlight-color);
-        margin: 0;
+        margin-bottom: 10px;
       }
       .privacy-note {
         font-size: 14px;
@@ -85,7 +75,6 @@
         margin: 10px 0;
         text-align: center;
         font-size: 16px;
-        box-sizing: border-box;
       }
       .btn-row,
       .donate-row {
@@ -103,12 +92,12 @@
         border-radius: 8px;
         cursor: pointer;
         font-size: 16px;
-        background: #333;
+        background: var(--button-background);
         color: #fff;
         transition: background 0.3s ease;
       }
       button:hover {
-        background: #444;
+        background: var(--button-hover);
       }
       .hidden {
         display: none;
@@ -167,21 +156,6 @@
         border-radius: 12px;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       }
-      #privacy-modal h2 {
-        border-bottom: 1px solid #444;
-        padding-bottom: 8px;
-        margin-bottom: 15px;
-      }
-      #privacy-modal h3 {
-        margin-top: 20px;
-      }
-      #privacy-modal a {
-        color: #4da3ff;
-        text-decoration: none;
-      }
-      #privacy-modal a:hover {
-        text-decoration: underline;
-      }
       #privacy-modal .close-btn {
         text-align: right;
         margin-top: 20px;
@@ -232,162 +206,91 @@
         </div>
         <p>Fund snacks & servers—tap a button, be a hero!</p>
         <div class="donate-row">
-          <button class="donate" data-amount="1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="#fff"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M23.5 6.5c-.3-2.3-2.4-3.5-5.6-3.5h-8.8c-.4 0-.8.3-.9.7l-3.2 15.3c-.1.5.3.9.8.9h3.8l.8-4h2.4c4.6 0 8.1-2.3 9.1-6.4.1-.5.2-1 .2-1.5z"
-                fill="skyblue"
-              />
-            </svg>
-            $1
-          </button>
-          <button class="donate" data-amount="5">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="#fff"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M23.5 6.5c-.3-2.3-2.4-3.5-5.6-3.5h-8.8c-.4 0-.8.3-.9.7l-3.2 15.3c-.1.5.3.9.8.9h3.8l.8-4h2.4c4.6 0 8.1-2.3 9.1-6.4.1-.5.2-1 .2-1.5z"
-                fill="skyblue"
-              />
-            </svg>
-            $5
-          </button>
-          <button class="donate" data-amount="10">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="#fff"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M23.5 6.5c-.3-2.3-2.4-3.5-5.6-3.5h-8.8c-.4 0-.8.3-.9.7l-3.2 15.3c-.1.5.3.9.8.9h3.8l.8-4h2.4c4.6 0 8.1-2.3 9.1-6.4.1-.5.2-1 .2-1.5z"
-                fill="skyblue"
-              />
-            </svg>
-            $10
-          </button>
+          <button class="donate" data-amount="1">$1</button>
+          <button class="donate" data-amount="5">$5</button>
+          <button class="donate" data-amount="10">$10</button>
         </div>
         <button
           onclick="window.open('https://secure-password-creator.netlify.app/', '_blank')"
-          aria-label="Try our secure password creator"
         >
           Try our secure password creator
         </button>
       </div>
       <footer>
         <p>
-          © <span id="year"></span> QR Code Generator |
+          © <span id="year"></span> Luna QR Generator |
           <button id="privacy-btn">Privacy Policy</button>
         </p>
       </footer>
+
+      <!-- Privacy Modal -->
       <div id="privacy-modal">
         <div class="modal-content">
           <h2>Privacy Policy</h2>
           <p><strong>Effective Date:</strong> October 21, 2025</p>
-          <h3>1. Information We Do Not Collect</h3>
           <p>
             We do <strong>not collect, store, or share</strong> any personal
-            information or data you enter into the QR Code Generator. All QR
-            codes are generated locally in your browser — nothing you type or
-            upload is sent to our servers.
+            information. All QR codes are generated locally in your browser —
+            nothing you type or upload is sent to our servers.
           </p>
-          <h3>2. Advertising</h3>
+          <h3>Advertising</h3>
           <p>
-            We use <strong>Google AdSense</strong> to display ads on our
-            website. Google may use cookies or similar technologies to serve ads
-            based on your visits to this and other websites.
-          </p>
-          <p>
-            You can learn more about how Google uses data here:
-            <a
-              href="https://policies.google.com/technologies/ads"
-              target="_blank"
-              >https://policies.google.com/technologies/ads</a
-            >
-          </p>
-          <p>
-            To manage your ad personalization preferences, visit:
-            <a href="https://adssettings.google.com/" target="_blank"
-              >https://adssettings.google.com/</a
-            >
-          </p>
-          <h3>3. Cookies</h3>
-          <p>
-            Our website itself does not use cookies. However,
-            <strong>Google Ads</strong> may set cookies to deliver relevant
-            advertising and track performance.
-          </p>
-          <h3>4. Third-Party Links</h3>
-          <p>
-            Our website may contain links to third-party sites. We are not
-            responsible for the content or privacy practices of those sites.
-          </p>
-          <h3>5. Changes to This Policy</h3>
-          <p>
-            We may update this Privacy Policy from time to time. When we do, we
-            will update the “Effective Date” above.
-          </p>
-          <h3>6. Contact</h3>
-          <p>
-            If you have any questions about this Privacy Policy, you can contact
-            us at:
-            <a href="mailto:luna-administrator@proton.me"
-              >luna-administrator@proton.me</a
-            >
+            We use <strong>Google AdSense</strong> to display ads. Google may
+            use cookies or similar technologies to serve ads based on your
+            visits to this and other sites.
           </p>
           <div class="close-btn"><button id="close-modal">Close</button></div>
         </div>
       </div>
     </div>
+
     <script defer>
       (() => {
-        const q = (e) => document.getElementById(e),
-          input = q("inputText"),
-          gen = q("generateBtn"),
-          clr = q("clearBtn"),
-          dl = q("downloadBtn"),
-          img = q("qrImage"),
-          modal = q("privacy-modal"),
-          pBtn = q("privacy-btn"),
-          cBtn = q("close-modal");
+        const q = (id) => document.getElementById(id);
+        const input = q("inputText");
+        const gen = q("generateBtn");
+        const clr = q("clearBtn");
+        const dl = q("downloadBtn");
+        const img = q("qrImage");
+        const modal = q("privacy-modal");
+        const pBtn = q("privacy-btn");
+        const cBtn = q("close-modal");
+
+        // ✅ FIXED for Netlify Function
         gen.onclick = async () => {
           const t = input.value.trim();
           if (!t) return alert("Please enter a URL or email.");
-          const r = await fetch("/generate", {
+          try {
+            const r = await fetch("generate", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ text: t }),
-            }),
-            n = await r.json();
-          if (n.qr) {
-            img.src = n.qr;
-            dl.classList.remove("hidden");
-            dl.onclick = () => {
-              const a = document.createElement("a");
-              a.href = n.qr;
-              a.download = "qr-code.png";
-              document.body.appendChild(a);
-              a.click();
-              a.remove();
-            };
+            });
+            const n = await r.json();
+            if (n.qr) {
+              img.src = n.qr;
+              dl.classList.remove("hidden");
+              dl.onclick = () => {
+                const a = document.createElement("a");
+                a.href = n.qr;
+                a.download = "qr-code.png";
+                a.click();
+              };
+            } else {
+              alert("Failed to generate QR code.");
+            }
+          } catch (err) {
+            console.error(err);
+            alert("Server error. Please try again later.");
           }
         };
+
         clr.onclick = () => {
           input.value = "";
           img.src = "moon.webp";
           dl.classList.add("hidden");
         };
+
         document.querySelectorAll(".donate").forEach((e) => {
           e.onclick = () =>
             window.open(
@@ -395,6 +298,7 @@
               "_blank"
             );
         });
+
         q("year").textContent = new Date().getFullYear();
         pBtn.onclick = () => (modal.style.display = "block");
         cBtn.onclick = () => (modal.style.display = "none");
