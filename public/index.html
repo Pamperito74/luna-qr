@@ -8,205 +8,18 @@
       property="og:description"
       content="Generate QR codes instantly without tracking or data collection."
     />
-    <meta property="og:image" content="https://luna-qr.netlify.app/moon.webp" />
+    <meta property="og:image" content="https://luna-qr.netlify.app/assets/moon.webp" />
     <meta property="og:url" content="https://luna-qr.netlify.app/" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>Luna QR Code Generator – No Tracking, Fast & Secure</title>
-    <link rel="icon" type="image/png" href="luna.webp" />
+    <link rel="icon" type="image/png" href="assets/luna.webp" />
     <meta name="google-adsense-account" content="ca-pub-6433842942378095" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6433842942378095"
       crossorigin="anonymous"
     ></script>
-    <style>
-      :root {
-        --background-color: #111;
-        --card-background: #1b1b1b;
-        --text-color: #eee;
-        --highlight-color: #4caf50;
-        --button-background: #333;
-        --button-hover: #444;
-        --strength-red: red;
-        --strength-orange: orange;
-        --strength-green: green;
-      }
-      body {
-        font-family: Arial, sans-serif;
-        background: #111;
-        color: #fff;
-        margin: 0;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        box-sizing: border-box;
-      }
-      .container {
-        text-align: center;
-        max-width: 400px;
-        width: 75%;
-      }
-      .card {
-        background: #1b1b1b;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        display: flex;
-        flex-direction: column;
-      }
-      h1 {
-        font-weight: 600;
-        font-size: 1.8em;
-        color: var(--highlight-color);
-        margin: 0;
-      }
-      .privacy-note {
-        font-size: 14px;
-        color: #bbb;
-        margin-top: 18px;
-        line-height: 1.5;
-        padding-top: 10px;
-        border-top: 1px solid #333;
-      }
-      .qr img {
-        width: 100%;
-        max-width: 256px;
-        height: auto;
-        border-radius: 8px;
-        image-rendering: pixelated;
-      }
-      input {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-        margin: 10px 0;
-        text-align: center;
-        font-size: 16px;
-        box-sizing: border-box;
-      }
-      .btn-row,
-      .donate-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        margin-bottom: 15px;
-      }
-      button {
-        flex: 1 1 30%;
-        min-width: 80px;
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        background: #333;
-        color: #fff;
-        transition: background 0.3s ease;
-      }
-      button:hover {
-        background: #444;
-      }
-      .hidden {
-        display: none;
-      }
-      .donate {
-        background: #222;
-        border: 1px solid #444;
-        padding: 8px 12px;
-        border-radius: 8px;
-        color: #fff;
-        font-size: 14px;
-      }
-      .donate:hover {
-        background: #333;
-      }
-      footer {
-        margin-top: 15px;
-        text-align: center;
-        font-size: 14px;
-        color: #bbb;
-        border-top: 1px solid #333;
-        padding-top: 10px;
-      }
-      footer p {
-        margin: 0;
-      }
-      #privacy-btn {
-        background: none;
-        border: none;
-        color: #4da3ff;
-        cursor: pointer;
-        font-size: 14px;
-        text-decoration: underline;
-      }
-      #privacy-btn:hover {
-        color: #fff;
-      }
-      #privacy-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        color: #e6e6e6;
-        overflow: auto;
-        z-index: 1000;
-        font-family: "Helvetica Neue", Arial, sans-serif;
-      }
-      #privacy-modal .modal-content {
-        background: #222;
-        margin: 5% auto;
-        padding: 20px;
-        max-width: 800px;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-      }
-      #privacy-modal h2 {
-        border-bottom: 1px solid #444;
-        padding-bottom: 8px;
-        margin-bottom: 15px;
-      }
-      #privacy-modal h3 {
-        margin-top: 20px;
-      }
-      #privacy-modal a {
-        color: #4da3ff;
-        text-decoration: none;
-      }
-      #privacy-modal a:hover {
-        text-decoration: underline;
-      }
-      #privacy-modal .close-btn {
-        text-align: right;
-        margin-top: 20px;
-      }
-      #privacy-modal .close-btn button {
-        background: #444;
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-      #privacy-modal .close-btn button:hover {
-        background: #555;
-      }
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 1.5em;
-        }
-        .btn-row button,
-        .donate-row button {
-          flex: 1 1 100%;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="container">
@@ -218,7 +31,7 @@
       </p>
       <div class="card">
         <div id="qrContainer" class="qr">
-          <img src="moon.webp" alt="moon" id="qrImage" loading="lazy" />
+          <img src="assets/moon.webp" alt="moon" id="qrImage" loading="lazy" />
         </div>
         <input
           type="text"
@@ -350,58 +163,6 @@
         </div>
       </div>
     </div>
-    <script>
-      (() => {
-        const q = (e) => document.getElementById(e),
-          input = q("inputText"),
-          gen = q("generateBtn"),
-          clr = q("clearBtn"),
-          dl = q("downloadBtn"),
-          img = q("qrImage"),
-          modal = q("privacy-modal"),
-          pBtn = q("privacy-btn"),
-          cBtn = q("close-modal");
-        gen.onclick = async () => {
-          const t = input.value.trim();
-          if (!t) return alert("Please enter a URL or email.");
-          const r = await fetch("/generate", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ text: t }),
-            }),
-            n = await r.json();
-          if (n.qr) {
-            img.src = n.qr;
-            dl.classList.remove("hidden");
-            dl.onclick = () => {
-              const a = document.createElement("a");
-              a.href = n.qr;
-              a.download = "qr-code.png";
-              document.body.appendChild(a);
-              a.click();
-              a.remove();
-            };
-          }
-        };
-        clr.onclick = () => {
-          input.value = "";
-          img.src = "moon.webp";
-          dl.classList.add("hidden");
-        };
-        document.querySelectorAll(".donate").forEach((e) => {
-          e.onclick = () =>
-            window.open(
-              `https://www.paypal.com/donate?business=daniel.oceno@gmail.com&amount=${e.dataset.amount}&currency_code=USD`,
-              "_blank"
-            );
-        });
-        q("year").textContent = new Date().getFullYear();
-        pBtn.onclick = () => (modal.style.display = "block");
-        cBtn.onclick = () => (modal.style.display = "none");
-        window.onclick = (e) => {
-          if (e.target === modal) modal.style.display = "none";
-        };
-      })();
-    </script>
+    <script defer src="js/main.js"></script>     
   </body>
 </html>
