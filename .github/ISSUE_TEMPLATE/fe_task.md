@@ -1,7 +1,7 @@
 ---
-name: 📋 Frontend Task
+name: 📋 Task FE
 about: Create a new project task
-title: "[Frontend Task] "
+title: "Task FE "
 labels: frontend, task, todo
 assignees: ''
 ---
