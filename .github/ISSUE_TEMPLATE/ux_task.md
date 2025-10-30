@@ -2,7 +2,7 @@
 name: Task
 about: Create a new project task
 title: "[Task] "
-labels: task, todo
+labels: ux, task, todo
 assignees: ''
 ---
 
