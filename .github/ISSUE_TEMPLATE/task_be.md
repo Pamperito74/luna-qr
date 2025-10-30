@@ -1,8 +1,8 @@
 ---
-name: 📋 Task FE
-about: Create a new project task
-title: "Task FE "
-labels: frontend, task, todo
+name: 📋 Backend 
+about: Create a new BE task
+title: "Title"
+labels: backend, task, todo
 assignees: ''
 ---
 
