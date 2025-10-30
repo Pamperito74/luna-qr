@@ -1,5 +1,5 @@
 ---
-name: Frontend Task
+name: 📋 Frontend Task
 about: Create a new project task
 title: "[Frontend Task] "
 labels: frontend, task, todo

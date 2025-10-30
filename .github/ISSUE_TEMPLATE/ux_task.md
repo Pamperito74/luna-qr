@@ -1,5 +1,5 @@
 ---
-name: UX Task
+name: 📋 UX Task
 about: Create a new project task
 title: "[UX Task] "
 labels: ux, task, todo

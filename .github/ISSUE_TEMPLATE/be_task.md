@@ -1,5 +1,5 @@
 ---
-name: Backen Task
+name: 📋 Backen Task
 about: Create a new project task
 title: "Backen Task "
 labels: backend, task, todo
