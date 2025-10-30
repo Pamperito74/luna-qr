@@ -1,7 +1,7 @@
 ---
-name: Task
+name: Backen Task
 about: Create a new project task
-title: "Task "
+title: "Backen Task "
 labels: backend, task, todo
 assignees: ''
 ---

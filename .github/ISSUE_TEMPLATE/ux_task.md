@@ -1,8 +1,8 @@
 ---
-name: Task
+name: UX Task
 about: Create a new project task
-title: "[Task] "
-labels: frontend, task, todo
+title: "[UX Task] "
+labels: ux, task, todo
 assignees: ''
 ---
 
