@@ -32,7 +32,7 @@ Use the predefined templates to ensure consistency and clarity across all tasks:
 ## 🏷️ Labels
 Labels help classify and filter tasks efficiently:
 - **By type:** `bug`, `feature`, `enhancement`, `documentation`, `question`  
-- **By area:** `backend`, `frontend`, `ux`  
+- **By area:** `BE (backend)`, `FE (frontend)`, `UX (UI/UX)`  
 - **By status/help:** `good first issue`, `help wanted`, `duplicate`, `invalid`, `wontfix`
 
 Consistent labeling ensures that team members can quickly identify the scope, ownership, and urgency of each task.
