@@ -98,6 +98,26 @@ body {
   animation: rise-in 450ms ease;
 }
 
+.hero-top {
+  margin-bottom: 8px;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--surface-border);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: rgba(8, 14, 28, 0.4);
+}
+
+.github-link:hover {
+  background: rgba(12, 20, 40, 0.7);
+}
+
 .hero h1 {
   margin: 0;
   font-family: var(--font-display);
@@ -110,6 +130,35 @@ body {
   max-width: 60ch;
   color: var(--text-muted);
   line-height: 1.5;
+}
+
+.hero-chips {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-chips span {
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: rgba(10, 17, 33, 0.45);
+}
+
+.hero-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.hero-links a {
+  color: var(--primary);
+  font-size: 0.92rem;
 }
 
 .card {
@@ -343,6 +392,10 @@ footer {
   text-align: center;
   margin-top: 16px;
   color: var(--text-muted);
+}
+
+footer a {
+  color: var(--primary);
 }
 
 #privacy-btn {
