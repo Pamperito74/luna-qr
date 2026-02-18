@@ -1,6 +1,10 @@
 (() => {
   const q = (id) => document.getElementById(id);
 
+  const MAX_LOGO_BYTES = 2 * 1024 * 1024; // 2 MB
+  const MAX_INPUT_LENGTH = 4296;
+  const DEBOUNCE_MS = 250;
+
   const state = {
     qrDataUrl: null,
     qrSvg: null,
@@ -8,6 +12,7 @@
     logoImage: null,
     previousFocus: null,
     qrLoaderPromise: null,
+    debounceTimer: null,
   };
 
   const input = q("inputText");
@@ -38,6 +43,18 @@
   const privacyChoicesBtn = q("privacy-choices-btn");
   const closeModalBtn = q("close-modal");
   const privacyChoicesHeading = q("privacy-choices");
+  const toastContainer = q("toast-container");
+
+  const showToast = (message) => {
+    const el = document.createElement("div");
+    el.className = "toast";
+    el.textContent = message;
+    toastContainer.appendChild(el);
+    setTimeout(() => {
+      el.classList.add("toast-out");
+      el.addEventListener("animationend", () => el.remove());
+    }, 2800);
+  };
 
   const setMessage = (message, isError = false) => {
     formMessage.textContent = message;
@@ -55,6 +72,17 @@
 
     downloadBtn.disabled = !hasQrPng;
     downloadSvgBtn.disabled = !hasQrSvg;
+  };
+
+  const sanitizeFilename = (text) => {
+    const slug = text
+      .trim()
+      .toLowerCase()
+      .replace(/https?:\/\//, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+      .slice(0, 40);
+    return slug || "qr-code";
   };
 
   const readFileAsDataUrl = (file) =>
@@ -225,8 +253,16 @@
       return;
     }
 
+    if (value.length > MAX_INPUT_LENGTH) {
+      setMessage(`Input too long (max ${MAX_INPUT_LENGTH} characters).`, true);
+      return;
+    }
+
+    generateBtn.classList.add("loading");
+
     const qrReady = await ensureQrCodeReady();
     if (!qrReady) {
+      generateBtn.classList.remove("loading");
       setMessage(
         "QR library is unavailable. Please disable blocker settings or try again.",
         true
@@ -235,6 +271,7 @@
     }
 
     await generateQr(value);
+    generateBtn.classList.remove("loading");
   });
 
   clearBtn.addEventListener("click", () => {
@@ -259,12 +296,14 @@
       return;
     }
 
+    const filename = `lumaQR-${sanitizeFilename(state.lastInput)}.png`;
     const a = document.createElement("a");
     a.href = state.qrDataUrl;
-    a.download = "luna-qr-code.png";
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     a.remove();
+    showToast("PNG downloaded");
   });
 
   downloadSvgBtn.addEventListener("click", () => {
@@ -272,27 +311,31 @@
       setMessage("Generate a QR code before downloading.", true);
       return;
     }
+    const filename = `lumaQR-${sanitizeFilename(state.lastInput)}.svg`;
     const blob = new Blob([state.qrSvg], { type: "image/svg+xml;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "luna-qr-code.svg";
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
     if (state.logoImage) {
-      setMessage("SVG exported without embedded logo. Use PNG to keep the logo.");
+      showToast("SVG exported without embedded logo. Use PNG to keep the logo.");
+    } else {
+      showToast("SVG downloaded");
     }
   });
 
-  const liveRegenerate = async () => {
+  const liveRegenerate = () => {
     sizeValue.textContent = sizeRange.value;
     marginValue.textContent = marginRange.value;
     logoSizeValue.textContent = logoSizeRange.value;
     updateActionStates();
     if (!state.lastInput) return;
-    await generateQr(state.lastInput);
+    clearTimeout(state.debounceTimer);
+    state.debounceTimer = setTimeout(() => generateQr(state.lastInput), DEBOUNCE_MS);
   };
 
   [eccSelect, sizeRange, marginRange, bgModeSelect, logoSizeRange].forEach((el) => {
@@ -303,6 +346,20 @@
   logoInput.addEventListener("change", async () => {
     const file = logoInput.files && logoInput.files[0];
     if (!file) return;
+
+    if (file.size > MAX_LOGO_BYTES) {
+      setMessage("Logo file is too large (max 2 MB).", true);
+      logoInput.value = "";
+      return;
+    }
+
+    const allowedTypes = ["image/png", "image/jpeg", "image/webp"];
+    if (!allowedTypes.includes(file.type)) {
+      setMessage("Unsupported logo format. Use PNG, JPEG, or WebP.", true);
+      logoInput.value = "";
+      return;
+    }
+
     try {
       const dataUrl = await readFileAsDataUrl(file);
       state.logoImage = await loadImage(dataUrl);
@@ -331,7 +388,7 @@
     const button = document.createElement("button");
     button.className = "donate-button";
     button.type = "button";
-    button.innerHTML = `$${amount}`;
+    button.textContent = `$${amount}`;
     button.setAttribute("aria-label", `Donate ${amount} US dollars with PayPal`);
     button.addEventListener("click", () => {
       const donationUrl = `https://www.paypal.com/donate?business=daniel.oceno@gmail.com&amount=${amount}&currency_code=USD`;

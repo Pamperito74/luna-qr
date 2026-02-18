@@ -56,6 +56,7 @@
   <body>
     <div class="bg-orb orb-a" aria-hidden="true"></div>
     <div class="bg-orb orb-b" aria-hidden="true"></div>
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
 
     <main class="container">
       <header class="hero">
@@ -130,6 +131,7 @@
                 id="inputText"
                 placeholder="https://example.com"
                 autocomplete="off"
+                maxlength="4296"
                 required
               />
 
@@ -175,7 +177,7 @@
                 <input
                   id="logoInput"
                   type="file"
-                  accept="image/png,image/jpeg,image/webp,image/svg+xml"
+                  accept="image/png,image/jpeg,image/webp"
                 />
 
                 <label for="logoSizeRange"
@@ -248,7 +250,13 @@
             QR content is generated in your browser. We do not intentionally
             store the text you enter to create a QR code.
           </p>
-          <h3>2. Ads and Identifiers</h3>
+          <h3>2. Local Storage</h3>
+          <p>
+            We store your selected color theme in your browser's local storage
+            so it persists between visits. No personal data is stored or
+            transmitted.
+          </p>
+          <h3>3. Ads and Identifiers</h3>
           <p>
             We use Google AdSense. Google may use cookies or similar
             identifiers to deliver and measure ads.
@@ -266,7 +274,7 @@
               >Google Ads Policies</a
             >
           </p>
-          <h3 id="privacy-choices">3. Your Privacy Choices</h3>
+          <h3 id="privacy-choices">4. Your Privacy Choices</h3>
           <p>
             Manage ad personalization:
             <a
@@ -284,28 +292,28 @@
             For applicable U.S. state privacy requests, contact us using the
             email below with the subject line “Privacy Request”.
           </p>
-          <h3>4. Regional Rights</h3>
+          <h3>5. Regional Rights</h3>
           <p>
             Depending on where you live, you may have rights to request access,
             deletion, correction, or to opt out of certain data uses. We will
             review and respond to requests as required by applicable law.
           </p>
-          <h3>5. Global Privacy Control</h3>
+          <h3>6. Global Privacy Control</h3>
           <p>
             Where required by law, we honor valid Global Privacy Control (GPC)
             signals as an opt-out preference signal.
           </p>
-          <h3>6. Third-Party Links</h3>
+          <h3>7. Third-Party Links</h3>
           <p>
             This site may link to third-party websites. We are not responsible
             for their privacy practices.
           </p>
-          <h3>7. Changes</h3>
+          <h3>8. Changes</h3>
           <p>
             We may update this notice. We will revise the Effective Date when
             changes are published.
           </p>
-          <h3>8. Contact</h3>
+          <h3>9. Contact</h3>
           <p>
             Contact:
             <a href="mailto:luna-administrator@proton.me"
