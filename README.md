@@ -1,140 +1,49 @@
-# QR Code Generator – Private & High-Resolution
+# Luna QR Generator
 
-![QR Generator](public/placeholder.png)
+Modern, privacy-conscious QR code generator built as a static frontend app.
 
-![Node.js](https://img.shields.io/badge/Node.js-v18.x-green) ![License](https://img.shields.io/badge/License-MIT-blue) ![Build](https://img.shields.io/badge/Build-Pass-brightgreen)
+## What it does
 
-A **high-resolution, privacy-first QR code generator**. Self-hosted and fully static frontend with Node.js backend — generates clean QR codes without tracking or collecting any user data.
+- Generates QR codes directly in the browser using `qrcode.js`
+- Lets users download generated QR as PNG
+- Supports multiple color themes (Aurora, Sunset, Mint)
+- Works on desktop and mobile layouts
+- Includes accessible form controls and keyboard-friendly privacy modal
 
----
+## Privacy notes
 
-## 🌟 Features
+- QR content is generated in-browser and is not stored by this app
+- The site uses Google AdSense, which may use cookies/identifiers for ad delivery
 
-* ✅ High-resolution QR codes (1920×1920 px)
-* ✅ Pixel-perfect rendering with `image-rendering: pixelated`
-* ✅ Download QR codes as PNG
-* ✅ Privacy-safe: no tracking or analytics
-* ✅ Responsive for mobile and desktop
-* ✅ Optional donation buttons
+## Project structure
 
----
+```text
+public/
+  index.html
+  css/styles.css
+  js/main.js
+  assets/
+```
 
-## 🚀 Demo
+## Local development
 
-> Replace with your live URL:
-> `https://yourdomain.com`
+No build step is required. Serve `public/` with any static server.
 
----
-
-## 📸 Screenshot
-
-![Screenshot](public/placeholder.png)
-
----
-
-## 🛠 Installation
-
-1. **Clone the repository**
+Example with Python:
 
 ```bash
-git clone https://github.com/yourusername/qr-generator.git
-cd qr-generator
+cd public
+python3 -m http.server 3000
 ```
 
-2. **Install dependencies**
+Then open `http://localhost:3000`.
 
-```bash
-npm install
-```
+## Deployment
 
-3. **Start the server**
+Deploy as static files (Netlify, GitHub Pages, Vercel static, S3, etc.).
 
-```bash
-node server.js
-```
+## Maintenance suggestions
 
-4. Open your browser at `http://localhost:3000`
-
----
-
-## 🗂 Project Structure
-
-```
-qr-generator/
-├─ public/
-│  ├─ index.html       # Main page
-│  ├─ style.css        # Styles
-│  ├─ placeholder.png  # Placeholder QR
-│  └─ favicon.png      # Tab icon
-├─ server.js           # Express + QR code generator
-├─ package.json
-└─ README.md
-```
-
----
-
-## ⚡ Usage
-
-1. Enter a URL, email, or text
-2. Click ⚙️ **Generate**
-3. QR code appears in high resolution
-4. Click ⬇️ **Download** to save
-
-Clear input with 🧹 **Clear** button — returns placeholder image.
-
----
-
-## 🛡 Privacy & Security
-
-* No tracking of input or scans
-* No analytics or cookies
-* Generates clean QR codes **directly on the server**
-
-> Unlike many QR generators online, this ensures your data is private and safe.
-
----
-
-## 🔍 SEO & Indexing Tips
-
-1. Publicly accessible site
-2. Descriptive `<title>` and `<meta>` in `index.html`:
-
-```html
-<title>Private QR Code Generator – No Tracking, Fast & Secure</title>
-<meta name="description" content="Generate clean, private QR codes instantly. No tracking, no data collection — just a safe, fast QR code generator on your own server.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://yourdomain.com/">
-```
-
-3. Add `robots.txt` and `sitemap.xml` for faster indexing
-4. Submit to [Google Search Console](https://search.google.com/search-console/)
-
----
-
-## 🎨 Favicon
-
-Place your favicon in `public/` and link in `<head>`:
-
-```html
-<link rel="icon" type="image/png" href="favicon.png" />
-```
-
----
-
-## 📦 Dependencies
-
-* [Node.js](https://nodejs.org/)
-* [Express](https://www.npmjs.com/package/express)
-* [qrcode](https://www.npmjs.com/package/qrcode)
-
-Install via npm:
-
-```bash
-npm install express qrcode
-```
-
----
-
-## 📝 License
-
-MIT License – free to use and modify.
+- Pin and review third-party scripts periodically
+- Keep privacy language aligned with ad/analytics integrations
+- Add automated accessibility and link checks in CI

@@ -1,127 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="aurora">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Generate QR codes instantly in your browser. No account, no server-side payload storage, fast download, and modern themes."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://luna-qr.netlify.app/" />
+
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="Luna QR Code Generator" />
     <meta
       property="og:description"
-      content="Generate QR codes instantly without tracking or data collection."
+      content="Generate QR codes instantly in your browser with a modern, privacy-first experience."
     />
     <meta
       property="og:image"
       content="https://luna-qr.netlify.app/assets/luna.webp"
     />
     <meta property="og:url" content="https://luna-qr.netlify.app/" />
+
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Luna QR Code Generator – No Tracking, Fast & Secure</title>
+    <meta name="twitter:title" content="Luna QR Code Generator" />
+    <meta
+      name="twitter:description"
+      content="Fast browser-based QR generator with downloadable PNG output and theme customization."
+    />
+    <meta
+      name="twitter:image"
+      content="https://luna-qr.netlify.app/assets/luna.webp"
+    />
+
+    <title>Luna QR Generator | Fast, Private, Modern</title>
     <link rel="icon" type="image/png" href="assets/luna.webp" />
     <meta name="google-adsense-account" content="ca-pub-6433842942378095" />
-    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="js/vendor/qrcode.min.js" defer></script>
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6433842942378095"
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <h1>Luna QR Generator</h1>
-      <p class="privacy-note">
-        Unlike many online QR generators that track when or where a QR code is
-        scanned, our tool does not collect or store any data. It simply
-        generates a clean, privacy-safe QR code.
-      </p>
-      <div class="card">
-        <div id="qrContainer" class="qr">
-          <img src="assets/moon.webp" alt="moon" id="qrImage" loading="lazy" />
+    <div class="bg-orb orb-a" aria-hidden="true"></div>
+    <div class="bg-orb orb-b" aria-hidden="true"></div>
+
+    <main class="container">
+      <header class="hero">
+        <h1>Luna QR Generator</h1>
+        <p>
+          Create QR codes directly in your browser. We do not store the text you
+          enter. Ads may use cookies for ad delivery.
+        </p>
+      </header>
+
+      <section class="card" aria-labelledby="generator-title">
+        <div class="card-top">
+          <h2 id="generator-title">Generate</h2>
+          <div class="theme-wrap">
+            <label for="themeSelect" class="theme-label">Theme</label>
+            <select id="themeSelect" aria-label="Select color theme">
+              <option value="aurora">Aurora</option>
+              <option value="sunset">Sunset</option>
+              <option value="mint">Mint</option>
+            </select>
+          </div>
         </div>
-        <input
-          type="text"
-          id="inputText"
-          placeholder="Enter URL or email to generate a QR Code"
-        />
-        <div class="btn-row">
-          <button id="generateBtn" title="Generate">⚙️</button>
-          <button id="clearBtn" title="Clear">🧹</button>
-          <button id="downloadBtn" class="hidden" title="Download">⬇️</button>
+
+        <div class="workspace">
+          <div class="preview-pane">
+            <div id="qrContainer" class="qr">
+              <img
+                src="assets/moon.webp"
+                alt="Preview of generated QR code"
+                id="qrImage"
+                width="256"
+                height="256"
+                loading="eager"
+              />
+            </div>
+          </div>
+
+          <div class="controls-pane">
+            <form id="qrForm" class="qr-form" novalidate>
+              <label for="inputText">Text, URL, or email</label>
+              <input
+                type="text"
+                id="inputText"
+                placeholder="https://example.com"
+                autocomplete="off"
+                required
+              />
+
+              <div class="option-grid">
+                <label for="eccSelect">Error correction</label>
+                <select id="eccSelect" aria-label="Error correction level">
+                  <option value="M">Balanced</option>
+                  <option value="L">Compact</option>
+                  <option value="Q">Robust</option>
+                  <option value="H">Max resilient</option>
+                </select>
+
+                <label for="sizeRange">Size <span id="sizeValue">512</span>px</label>
+                <input
+                  id="sizeRange"
+                  type="range"
+                  min="256"
+                  max="1024"
+                  step="64"
+                  value="512"
+                />
+
+                <label for="marginRange"
+                  >Margin <span id="marginValue">1</span></label
+                >
+                <input
+                  id="marginRange"
+                  type="range"
+                  min="0"
+                  max="6"
+                  step="1"
+                  value="1"
+                />
+
+                <label for="bgModeSelect">Background</label>
+                <select id="bgModeSelect" aria-label="QR background mode">
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                  <option value="transparent">Transparent</option>
+                </select>
+
+                <label for="logoInput">Center logo</label>
+                <input
+                  id="logoInput"
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp,image/svg+xml"
+                />
+
+                <label for="logoSizeRange"
+                  >Logo size <span id="logoSizeValue">20</span>%</label
+                >
+                <input
+                  id="logoSizeRange"
+                  type="range"
+                  min="12"
+                  max="30"
+                  step="1"
+                  value="20"
+                />
+                <button id="removeLogoBtn" type="button" class="hidden">
+                  Remove logo
+                </button>
+              </div>
+              <p id="formMessage" class="form-message" aria-live="polite"></p>
+
+              <div class="btn-row">
+                <button id="generateBtn" type="submit" class="btn-primary">
+                  Generate
+                </button>
+                <button id="clearBtn" type="button">Clear</button>
+                <button id="downloadBtn" type="button" class="hidden">
+                  Download PNG
+                </button>
+                <button id="downloadSvgBtn" type="button" class="hidden">
+                  Download SVG
+                </button>
+              </div>
+            </form>
+
+            <div class="support-block">
+              <p class="support-copy">Fund snacks and servers:</p>
+              <div class="donate-row" id="donate-buttons"></div>
+            </div>
+          </div>
         </div>
-        <p>Fund snacks & servers—tap a button, be a hero!</p>
-        <div class="donate-row" id="donate-buttons"></div>
-        <button
-          onclick="window.open('https://secure-password-creator.netlify.app/', '_blank')"
-          aria-label="Try our secure password creator"
-        >
-          Try our secure password creator
-        </button>
-      </div>
+      </section>
+
       <footer>
         <p>
-          © <span id="year"></span> QR Code Generator |
-          <button id="privacy-btn">Privacy Policy</button>
+          &copy; <span id="year"></span> Luna QR |
+          <button id="privacy-btn" type="button">Privacy Policy</button> |
+          <button id="privacy-choices-btn" type="button">
+            Your Privacy Choices
+          </button>
         </p>
       </footer>
-      <div id="privacy-modal">
+
+      <div
+        id="privacy-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="privacy-title"
+        aria-hidden="true"
+      >
         <div class="modal-content">
-          <h2>Privacy Policy</h2>
-          <p><strong>Effective Date:</strong> October 21, 2025</p>
-          <h3>1. Information We Do Not Collect</h3>
+          <h2 id="privacy-title">Privacy Policy</h2>
+          <p><strong>Effective Date:</strong> February 18, 2026</p>
+          <h3>1. What This App Processes</h3>
           <p>
-            We do <strong>not collect, store, or share</strong> any personal
-            information or data you enter into the QR Code Generator. All QR
-            codes are generated locally in your browser — nothing you type or
-            upload is sent to our servers.
+            QR content is generated in your browser. We do not intentionally
+            store the text you enter to create a QR code.
           </p>
-          <h3>2. Advertising</h3>
+          <h3>2. Ads and Identifiers</h3>
           <p>
-            We use <strong>Google AdSense</strong> to display ads on our
-            website. Google may use cookies or similar technologies to serve ads
-            based on your visits to this and other websites.
+            We use Google AdSense. Google may use cookies or similar
+            identifiers to deliver and measure ads.
           </p>
           <p>
-            You can learn more about how Google uses data here:
+            Depending on your region, ad-related processing may include
+            personalized or non-personalized ads.
+          </p>
+          <p>
+            Learn more:
             <a
               href="https://policies.google.com/technologies/ads"
               target="_blank"
-              >https://policies.google.com/technologies/ads</a
+              rel="noopener noreferrer"
+              >Google Ads Policies</a
+            >
+          </p>
+          <h3 id="privacy-choices">3. Your Privacy Choices</h3>
+          <p>
+            Manage ad personalization:
+            <a
+              href="https://adssettings.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >adssettings.google.com</a
             >
           </p>
           <p>
-            To manage your ad personalization preferences, visit:
-            <a href="https://adssettings.google.com/" target="_blank"
-              >https://adssettings.google.com/</a
-            >
+            You can also control cookies and tracking through your browser
+            settings and privacy extensions.
           </p>
-          <h3>3. Cookies</h3>
           <p>
-            Our website itself does not use cookies. However,
-            <strong>Google Ads</strong> may set cookies to deliver relevant
-            advertising and track performance.
+            For applicable U.S. state privacy requests, contact us using the
+            email below with the subject line “Privacy Request”.
           </p>
-          <h3>4. Third-Party Links</h3>
+          <h3>4. Regional Rights</h3>
           <p>
-            Our website may contain links to third-party sites. We are not
-            responsible for the content or privacy practices of those sites.
+            Depending on where you live, you may have rights to request access,
+            deletion, correction, or to opt out of certain data uses. We will
+            review and respond to requests as required by applicable law.
           </p>
-          <h3>5. Changes to This Policy</h3>
+          <h3>5. Global Privacy Control</h3>
           <p>
-            We may update this Privacy Policy from time to time. When we do, we
-            will update the “Effective Date” above.
+            Where required by law, we honor valid Global Privacy Control (GPC)
+            signals as an opt-out preference signal.
           </p>
-          <h3>6. Contact</h3>
+          <h3>6. Third-Party Links</h3>
           <p>
-            If you have any questions about this Privacy Policy, you can contact
-            us at:
+            This site may link to third-party websites. We are not responsible
+            for their privacy practices.
+          </p>
+          <h3>7. Changes</h3>
+          <p>
+            We may update this notice. We will revise the Effective Date when
+            changes are published.
+          </p>
+          <h3>8. Contact</h3>
+          <p>
+            Contact:
             <a href="mailto:luna-administrator@proton.me"
               >luna-administrator@proton.me</a
             >
           </p>
-          <div class="close-btn"><button id="close-modal">Close</button></div>
+          <div class="close-btn">
+            <button id="close-modal" type="button">Close</button>
+          </div>
         </div>
       </div>
-    </div>
-    <script src="js/main.js" defer></script>
+    </main>
   </body>
 </html>

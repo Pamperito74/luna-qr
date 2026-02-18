@@ -1,0 +1,25 @@
+name: Quality
+
+on:
+  pull_request:
+  push:
+    branches: ["**"]
+
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run repo checks
+        run: ./scripts/ci-check.sh
+
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run local smoke test
+        run: ./scripts/local-smoke-test.sh
